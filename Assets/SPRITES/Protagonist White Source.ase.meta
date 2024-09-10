@@ -128,11 +128,11 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 1539
+      x: 380
+      y: 4
       width: 361
       height: 375
-    spriteID: 583fef75c9b52d44895a1f172a7c3b6c
+    spriteID: 075725df7df68614882fad6e9e61fdbc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -140,7 +140,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 1539}
+    uvTransform: {x: 380, y: 4}
   - name: Protagonist White Source_Frame_1
     originalName: 
     pivot: {x: 0.041551247, y: 0}
@@ -152,7 +152,7 @@ ScriptedImporter:
       y: 1155
       width: 361
       height: 376
-    spriteID: 69ea57b3f6f9ed3479165121267ed402
+    spriteID: d5d906fe01fed1146b8cefa0e3241efb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -169,10 +169,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 380
-      y: 389
+      y: 579
       width: 32
       height: 377
-    spriteID: f19755cd0874e0246bf2e0b461deed93
+    spriteID: ac5269613f1527e42a3884ca1766062c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -180,7 +180,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 380, y: 389}
+    uvTransform: {x: 380, y: 579}
   - name: Protagonist White Source_Frame_3
     originalName: 
     pivot: {x: 0.044198893, y: 0}
@@ -192,7 +192,7 @@ ScriptedImporter:
       y: 771
       width: 362
       height: 376
-    spriteID: 763ae591799eb1f489ccff3ae0b5d932
+    spriteID: c7540c36d2fdf1747ab01a6c2c64d57d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -212,7 +212,7 @@ ScriptedImporter:
       y: 4
       width: 368
       height: 375
-    spriteID: 59a444d7f22e3cb4c9b4a2f2e4eac03c
+    spriteID: d5748074960cc82469f774915e7c39e4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -232,7 +232,7 @@ ScriptedImporter:
       y: 387
       width: 367
       height: 376
-    spriteID: 7d540e8f612f0354087acb4f1abf63db
+    spriteID: a2ddf6c08bd87bc4eacc537f1aff4cae
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -243,16 +243,16 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 387}
   - name: Protagonist White Source_Frame_6
     originalName: 
-    pivot: {x: 0.044198893, y: -1.0378379}
+    pivot: {x: 0.044198893, y: -0.00802139}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 380
-      y: 4
+      x: 4
+      y: 1539
       width: 362
-      height: 185
-    spriteID: 73c459a645bbc534ab6793b4c5d92394
+      height: 374
+    spriteID: da95726c5d483494795e9f95ef6275af
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -260,7 +260,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 380, y: 4}
+    uvTransform: {x: 4, y: 1539}
   - name: Protagonist White Source_Frame_7
     originalName: 
     pivot: {x: 0.041551247, y: -1.0489131}
@@ -269,10 +269,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 380
-      y: 197
+      y: 387
       width: 361
       height: 184
-    spriteID: 4d234e47e45ac4647b8509dfe2dcecf7
+    spriteID: 7a92da7d3cec29c4c955f77c86c0c651
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -280,7 +280,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 380, y: 197}
+    uvTransform: {x: 380, y: 387}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -298,7 +298,7 @@ ScriptedImporter:
         y: 0
         width: 361
         height: 375
-      spriteId: 583fef75c9b52d44895a1f172a7c3b6c
+      spriteId: 075725df7df68614882fad6e9e61fdbc
     - name: Protagonist White Source_Frame_1
       frameIndex: 1
       additiveSortOrder: 0
@@ -307,7 +307,7 @@ ScriptedImporter:
         y: 0
         width: 361
         height: 376
-      spriteId: 69ea57b3f6f9ed3479165121267ed402
+      spriteId: d5d906fe01fed1146b8cefa0e3241efb
     - name: Protagonist White Source_Frame_2
       frameIndex: 2
       additiveSortOrder: 0
@@ -316,7 +316,7 @@ ScriptedImporter:
         y: 0
         width: 32
         height: 377
-      spriteId: f19755cd0874e0246bf2e0b461deed93
+      spriteId: ac5269613f1527e42a3884ca1766062c
     - name: Protagonist White Source_Frame_3
       frameIndex: 3
       additiveSortOrder: 0
@@ -325,7 +325,7 @@ ScriptedImporter:
         y: 0
         width: 362
         height: 376
-      spriteId: 763ae591799eb1f489ccff3ae0b5d932
+      spriteId: c7540c36d2fdf1747ab01a6c2c64d57d
     - name: Protagonist White Source_Frame_4
       frameIndex: 4
       additiveSortOrder: 0
@@ -334,7 +334,7 @@ ScriptedImporter:
         y: 0
         width: 368
         height: 375
-      spriteId: 59a444d7f22e3cb4c9b4a2f2e4eac03c
+      spriteId: d5748074960cc82469f774915e7c39e4
     - name: Protagonist White Source_Frame_5
       frameIndex: 5
       additiveSortOrder: 0
@@ -343,16 +343,16 @@ ScriptedImporter:
         y: 0
         width: 367
         height: 376
-      spriteId: 7d540e8f612f0354087acb4f1abf63db
+      spriteId: a2ddf6c08bd87bc4eacc537f1aff4cae
     - name: Protagonist White Source_Frame_6
       frameIndex: 6
       additiveSortOrder: 0
       cellRect:
         x: 8
-        y: 192
+        y: 3
         width: 362
-        height: 185
-      spriteId: 73c459a645bbc534ab6793b4c5d92394
+        height: 374
+      spriteId: da95726c5d483494795e9f95ef6275af
     - name: Protagonist White Source_Frame_7
       frameIndex: 7
       additiveSortOrder: 0
@@ -361,7 +361,7 @@ ScriptedImporter:
         y: 193
         width: 361
         height: 184
-      spriteId: 4d234e47e45ac4647b8509dfe2dcecf7
+      spriteId: 7a92da7d3cec29c4c955f77c86c0c651
     linkedCells: []
     parentIndex: -1
   platformSettings: []
