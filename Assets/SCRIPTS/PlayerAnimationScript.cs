@@ -4,23 +4,26 @@ using UnityEngine;
 
 public class PlayerAnimationScript : MonoBehaviour
 {
+    public PlayerMovement PM;
+
     public bool Animated;
     [HideInInspector] public string CurrentTorso;
     [HideInInspector] public string CurrentLeg;
     [HideInInspector] public string CurrentFeet;
     [HideInInspector] public string CurrentHead;
-    [HideInInspector] public string CurrentShoulder;
-    [HideInInspector] public string CurrentGloves;
-    [HideInInspector] public string CurrentCap;
+    [HideInInspector] public string CurrentShoulders;
+    [HideInInspector] public string CurrentHands;
+    [HideInInspector] public string CurrentHair;
+   
     public SpriteRenderer SRC;
 
-    public Animator AF;
-    public Animator AL;
-    public Animator AT;
-    public Animator AS;
-    public Animator AH;
-    public Animator AG;
-    public Animator AC;
+    public Animator AFeet;
+    public Animator ALegs;
+    public Animator ATorso;
+    public Animator AShoulders;
+    public Animator AHead;
+    public Animator AHands;
+    public Animator AHair;
 
     // Start is called before the first frame update
     void Start()
@@ -29,10 +32,10 @@ public class PlayerAnimationScript : MonoBehaviour
         CurrentTorso = "Torso";
         CurrentHead = "Head";
         CurrentFeet = "Feet";
-        CurrentShoulder = "Shoulders";
+        CurrentShoulders = "Shoulders";
         CurrentLeg = "Legs";
-        CurrentGloves = "Gloves";
-        CurrentCap = "Hair";
+        CurrentHands = "Gloves";
+        CurrentHair = "Hair";
 
 
     }
@@ -40,34 +43,87 @@ public class PlayerAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Animated)
+        if (Animated && PM.horizontal < 0 && PM.vertical < 0|| Animated && PM.horizontal > 0 && PM.vertical < 0)
         {
-            AF.Play(CurrentFeet);
-            AL.Play(CurrentLeg);
-            AT.Play(CurrentTorso);
-            AS.Play(CurrentShoulder);
-            AH.Play(CurrentHead);
-            AG.Play(CurrentGloves);
-            AC.Play(CurrentCap);
+           
+            AFeet.Play("FeetRunLeftDown");
+            ALegs.Play("LegsRunLeftDown");
+            ATorso.Play("TorsoRunLeftDown");
+            AShoulders.Play("ShouldersRunLeftDown");
+            AHead.Play("HeadRunLeftDown");
+            AHands.Play("HandsRunLeftDown");
+            AHair.Play("HairRunLeftDown");
         }
-            
+        else if (Animated && PM.horizontal < 0 && PM.vertical > 0 || Animated && PM.horizontal > 0 && PM.vertical > 0)
+        {
+
+            AFeet.Play("FeetRunLeftUp");
+            ALegs.Play("LegsRunLeftUp");
+            ATorso.Play("TorsoRunLeftUp");
+            AShoulders.Play("ShouldersRunLeftUp");
+            AHead.Play("HeadRunLeftUp");
+            AHands.Play("HandsRunLeftUp");
+            AHair.Play("HairRunLeftUp");
+        }
+        else if (Animated && PM.horizontal < 0 || Animated && PM.horizontal > 0)
+        {
+
+            AFeet.Play("FeetRunLeft");
+            ALegs.Play("LegsRunLeft");
+            ATorso.Play("TorsoRunLeft");
+            AShoulders.Play("ShouldersRunLeft");
+            AHead.Play("HeadRunLeft");
+            AHands.Play("HandsRunLeft");
+            AHair.Play("HairRunLeft");
+        }
+        else if (Animated && PM.vertical < 0 )
+        {
+
+            AFeet.Play("FeetRunDown");
+            ALegs.Play("LegsRunDown");
+            ATorso.Play("TorsoRunDown");
+            AShoulders.Play("ShouldersRunDown");
+            AHead.Play("HeadRunDown");
+            AHands.Play("HandsRunDown");
+            AHair.Play("HairRunDown");
+        }
+        else if (Animated && PM.vertical > 0)
+        {
+
+            AFeet.Play("FeetRunUp");
+            ALegs.Play("LegsRunUp");
+            ATorso.Play("TorsoRunUp");
+            AShoulders.Play("ShouldersRunUp");
+            AHead.Play("HeadRunUp");
+            AHands.Play("HandsRunUp");
+            AHair.Play("HairRunUp");
+        }
+        else if (Animated)
+        {
+            AFeet.Play("FeetIdleDown");
+            ALegs.Play("LegsIdleDown");
+            ATorso.Play("TorsoIdleDown");
+            AShoulders.Play("ShoulderIdleDown");
+            AHead.Play("HeadIdleDown");
+            AHands.Play("HandsIdleDown");
+            AHair.Play("HairIdleDown");
+        }        
     }
     IEnumerator Refresh()
     {
         
-        AF.Play(0);
-        AL.Play(0);
-        AT.Play(0);
-        AS.Play(0);
-        AH.Play(0);
-        AG.Play(0);
-        AC.Play(0);
+        AFeet.Play(0);
+        ALegs.Play(0);
+        ATorso.Play(0);
+        AShoulders.Play(0);
+        AHead.Play(0);
+        AHands.Play(0);
+        AHair.Play(0);
         yield return null;
     }
     public void Armor1()
     {
 
-        CurrentCap = "Cap";
         StartCoroutine(Refresh());
         
     }

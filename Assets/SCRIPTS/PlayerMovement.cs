@@ -8,6 +8,7 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private bool isFacingRight = false;
     public static event Action OnPlayerDamaged;
     public float horizontal;
     public float vertical;
@@ -28,5 +29,22 @@ public class PlayerMovement : MonoBehaviour
     {
         rB.velocity = new Vector2(horizontal * 1, rB.velocity.y);
         rB.velocity = new Vector2(rB.velocity.x, vertical * 1);
+
+        if (!isFacingRight && horizontal > 0f)
+            Flip();
+        else if (isFacingRight && horizontal < 0f) Flip();
+
+
+
+
+
     }
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        var localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
+    }
+
 }
