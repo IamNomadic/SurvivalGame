@@ -27,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rB.velocity = new Vector2(horizontal * 1, rB.velocity.y);
-        rB.velocity = new Vector2(rB.velocity.x, vertical * 1);
+        rB.velocity = new Vector2(horizontal * 1.5f, rB.velocity.y);
+        rB.velocity = new Vector2(rB.velocity.x, vertical * 1.5f);
 
         if (!isFacingRight && horizontal > 0f)
             Flip();

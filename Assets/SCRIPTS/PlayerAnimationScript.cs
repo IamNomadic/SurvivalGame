@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAnimationScript : MonoBehaviour
 {
     public PlayerMovement PM;
-
+    public bool Called;
     public bool Animated;
     [HideInInspector] public string CurrentTorso;
     [HideInInspector] public string CurrentLeg;
@@ -45,20 +45,21 @@ public class PlayerAnimationScript : MonoBehaviour
     {
         if (Animated && PM.horizontal < 0 && PM.vertical < 0|| Animated && PM.horizontal > 0 && PM.vertical < 0)
         {
-           
+
             AFeet.Play("FeetRunLeftDown");
-            ALegs.Play("LegsRunLeftDown");
-            ATorso.Play("TorsoRunLeftDown");
+            ALegs.Play("LegsRunLeftUp");
+            ATorso.Play("TorsoRunLeftUp");
             AShoulders.Play("ShouldersRunLeftDown");
             AHead.Play("HeadRunLeftDown");
-            AHands.Play("HandsRunLeftDown");
+            AHands.Play("HandsRunLeftUp");
             AHair.Play("HairRunLeftDown");
         }
         else if (Animated && PM.horizontal < 0 && PM.vertical > 0 || Animated && PM.horizontal > 0 && PM.vertical > 0)
         {
 
+     
             AFeet.Play("FeetRunLeftUp");
-            ALegs.Play("LegsRunLeftUp");
+            ALegs.Play("LegsRunLeftDown");
             ATorso.Play("TorsoRunLeftUp");
             AShoulders.Play("ShouldersRunLeftUp");
             AHead.Play("HeadRunLeftUp");
@@ -68,6 +69,7 @@ public class PlayerAnimationScript : MonoBehaviour
         else if (Animated && PM.horizontal < 0 || Animated && PM.horizontal > 0)
         {
 
+         
             AFeet.Play("FeetRunLeft");
             ALegs.Play("LegsRunLeft");
             ATorso.Play("TorsoRunLeft");
@@ -78,6 +80,7 @@ public class PlayerAnimationScript : MonoBehaviour
         }
         else if (Animated && PM.vertical < 0 )
         {
+          
 
             AFeet.Play("FeetRunDown");
             ALegs.Play("LegsRunDown");
@@ -89,7 +92,7 @@ public class PlayerAnimationScript : MonoBehaviour
         }
         else if (Animated && PM.vertical > 0)
         {
-
+           
             AFeet.Play("FeetRunUp");
             ALegs.Play("LegsRunUp");
             ATorso.Play("TorsoRunUp");
@@ -100,6 +103,7 @@ public class PlayerAnimationScript : MonoBehaviour
         }
         else if (Animated)
         {
+            
             AFeet.Play("FeetIdleDown");
             ALegs.Play("LegsIdleDown");
             ATorso.Play("TorsoIdleDown");
