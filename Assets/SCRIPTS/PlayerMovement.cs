@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void Move(Vector2 context)
     {
-        Debug.Log("MoveCalled");
+        
         horizontal = context.x;
         vertical = context.y;
     }

@@ -42,9 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: PLAYER
-    uniqueID: 2837185989
-    locked: 0
   - name: ITEMS
     uniqueID: 2271897985
     locked: 0
@@ -53,4 +50,7 @@ TagManager:
     locked: 0
   - name: GROUND
     uniqueID: 1346687463
+    locked: 0
+  - name: PLAYER
+    uniqueID: 2837185989
     locked: 0
