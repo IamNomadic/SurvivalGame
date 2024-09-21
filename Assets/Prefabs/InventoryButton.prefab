@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 4856715459005806888}
   - component: {fileID: 1819377968761700764}
   m_Layer: 5
-  m_Name: CloseButton
+  m_Name: InventoryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2481311908370888083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -143,9 +143,9 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 3448918561266608545}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close Inventory
+  m_text: Inventory
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 12e5dbebdbdd03c49aba5b95233c43c6, type: 2}
   m_sharedMaterial: {fileID: -8082009102846378308, guid: 12e5dbebdbdd03c49aba5b95233c43c6, type: 2}
