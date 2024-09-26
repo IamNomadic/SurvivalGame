@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RabbitGenerator : MonoBehaviour
+public class ForrestGenerator : MonoBehaviour
 {
     public List<GameObject> spawnPool;
     public GameObject quad;

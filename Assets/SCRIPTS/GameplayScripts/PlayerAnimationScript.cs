@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerAnimationScript : MonoBehaviour
 {
     public PlayerMovement PM;
     public bool Called;
-    public bool Animated;
+    public bool MovementAnimated;
+    public bool ActionAnimated;
     [HideInInspector] public string CurrentTorso;
     [HideInInspector] public string CurrentLeg;
     [HideInInspector] public string CurrentFeet;
@@ -28,7 +30,7 @@ public class PlayerAnimationScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Animated = true;
+        MovementAnimated = true;
         CurrentTorso = "Torso";
         CurrentHead = "Head";
         CurrentFeet = "Feet";
@@ -43,33 +45,33 @@ public class PlayerAnimationScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Animated && PM.horizontal < 0 && PM.vertical < 0|| Animated && PM.horizontal > 0 && PM.vertical < 0)
+        if (MovementAnimated && PM.horizontal < 0 && PM.vertical < 0 || MovementAnimated && PM.horizontal > 0 && PM.vertical < 0)
         {
 
             AFeet.Play("FeetRunLeftDown");
-            ALegs.Play("LegsRunLeftUp");
-            ATorso.Play("TorsoRunLeftUp");
+            ALegs.Play("LegsRunLeftDown");
+            ATorso.Play("TorsoRunLeftDown");
             AShoulders.Play("ShouldersRunLeftDown");
             AHead.Play("HeadRunLeftDown");
-            AHands.Play("HandsRunLeftUp");
+            AHands.Play("HandsRunLeftDown");
             AHair.Play("HairRunLeftDown");
         }
-        else if (Animated && PM.horizontal < 0 && PM.vertical > 0 || Animated && PM.horizontal > 0 && PM.vertical > 0)
+        else if (MovementAnimated && PM.horizontal < 0 && PM.vertical > 0 || MovementAnimated && PM.horizontal > 0 && PM.vertical > 0)
         {
 
-     
+
             AFeet.Play("FeetRunLeftUp");
-            ALegs.Play("LegsRunLeftDown");
+            ALegs.Play("LegsRunLeftUp");
             ATorso.Play("TorsoRunLeftUp");
             AShoulders.Play("ShouldersRunLeftUp");
             AHead.Play("HeadRunLeftUp");
             AHands.Play("HandsRunLeftUp");
             AHair.Play("HairRunLeftUp");
         }
-        else if (Animated && PM.horizontal < 0 || Animated && PM.horizontal > 0)
+        else if (MovementAnimated && PM.horizontal < 0 || MovementAnimated && PM.horizontal > 0)
         {
 
-         
+
             AFeet.Play("FeetRunLeft");
             ALegs.Play("LegsRunLeft");
             ATorso.Play("TorsoRunLeft");
@@ -78,9 +80,9 @@ public class PlayerAnimationScript : MonoBehaviour
             AHands.Play("HandsRunLeft");
             AHair.Play("HairRunLeft");
         }
-        else if (Animated && PM.vertical < 0 )
+        else if (MovementAnimated && PM.vertical < 0)
         {
-          
+
 
             AFeet.Play("FeetRunDown");
             ALegs.Play("LegsRunDown");
@@ -90,9 +92,9 @@ public class PlayerAnimationScript : MonoBehaviour
             AHands.Play("HandsRunDown");
             AHair.Play("HairRunDown");
         }
-        else if (Animated && PM.vertical > 0)
+        else if (MovementAnimated && PM.vertical > 0)
         {
-           
+
             AFeet.Play("FeetRunUp");
             ALegs.Play("LegsRunUp");
             ATorso.Play("TorsoRunUp");
@@ -101,17 +103,44 @@ public class PlayerAnimationScript : MonoBehaviour
             AHands.Play("HandsRunUp");
             AHair.Play("HairRunUp");
         }
-        else if (Animated)
+        else if (MovementAnimated)
         {
-            
+
             AFeet.Play("FeetIdleDown");
             ALegs.Play("LegsIdleDown");
             ATorso.Play("TorsoIdleDown");
-            AShoulders.Play("ShoulderIdleDown");
+            AShoulders.Play("ShouldersIdleDown");
             AHead.Play("HeadIdleDown");
             AHands.Play("HandsIdleDown");
             AHair.Play("HairIdleDown");
-        }        
+        }
+    }
+    public void PickUp()
+    {
+        MovementAnimated = false;
+        StartCoroutine(onesec());
+    }
+    public void PutDown()
+    {
+        MovementAnimated = false;
+        StartCoroutine(onesec());
+
+    }
+    public void Dig()
+    {
+        MovementAnimated = false;
+        StartCoroutine(twosec());
+
+    }
+    IEnumerator onesec()
+    {
+        yield return new WaitForSeconds(1);
+        MovementAnimated = true;
+    }
+    IEnumerator twosec()
+    {
+        yield return new WaitForSeconds(2);
+        MovementAnimated = true;
     }
     IEnumerator Refresh()
     {

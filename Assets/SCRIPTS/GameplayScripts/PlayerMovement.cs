@@ -8,15 +8,47 @@ using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool MovementEnabled;
     private bool isFacingRight = false;
     public static event Action OnPlayerDamaged;
     public float horizontal;
     public float vertical;
     public Rigidbody2D rB;
+    private void Awake()
+    {
+        MovementEnabled = true;
+    }
+    public void EnableMovement()
+    {
+        MovementEnabled = true;
+    }
+    public void OneSecDisableMovement()
+    {
+        MovementEnabled = false;
+        StartCoroutine(onesec());
+    }
+    public void TwoSecDisableMovement()
+    {
+        MovementEnabled = false;
+        StartCoroutine(twosec());
+    }
+    IEnumerator onesec()
+    {
+        yield return new WaitForSeconds(1);
+        EnableMovement();
+    }
+    IEnumerator twosec()
+    {
+        yield return new WaitForSeconds(2);
+        EnableMovement();
+    }
     public void Move(Vector2 context)
     {
-        horizontal = context.x;
-        vertical = context.y;
+        if (MovementEnabled)
+        {
+            horizontal = context.x;
+            vertical = context.y;
+        }
     }
     void Update()
     {

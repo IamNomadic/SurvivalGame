@@ -9,12 +9,10 @@ public class RitualGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("start");
         spawnobjects();
     }
     public void spawnobjects()
     {
-        Debug.Log("spawnobjects");
 
         int randomItem = 0;
         GameObject toSpawn;
@@ -23,7 +21,7 @@ public class RitualGenerator : MonoBehaviour
         Vector2 pos;
         for(int i = 0; i < 3; i++)
         {
-            Debug.Log("ritualobjects");
+            Debug.Log("ritual"+i);
 
             randomItem = Random.Range(0, spawnPool.Count);
             toSpawn = spawnPool[randomItem];

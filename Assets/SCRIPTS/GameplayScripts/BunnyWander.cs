@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,11 @@ public class BunnyWander : MonoBehaviour
     bool targetLock;
     public Rigidbody2D rb;
     Vector2 direction;
+    float distance;
+    Vector2 zero = new Vector2(2,2);
     private void Update()
     {
-        
+        distance = ((float)Math.Sqrt((gameObject.transform.position.x  - PC.transform.position.x)*(gameObject.transform.position.x - PC.transform.position.x) + (gameObject.transform.position.y - PC.transform.position.y) * (gameObject.transform.position.y - PC.transform.position.y)));
 
         Vector2 direction = transform.position - PC.transform.position;
         direction.Normalize();
@@ -20,8 +23,12 @@ public class BunnyWander : MonoBehaviour
             Debug.Log(direction * -1);
 
             Debug.Log(targetLock);
-            rb.velocity =  1 * direction;
+            rb.velocity =  (direction - ;
                         
+        }
+        else if (!targetLock)
+        {
+            rb.velocity = rb.velocity / zero;
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

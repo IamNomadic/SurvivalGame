@@ -17,9 +17,14 @@ public class RitualActivation : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "DeadRabbit")
+        Debug.Log("Ritual collider");
+
+        if (collision.TryGetComponent<DeadBunny>(out DeadBunny deadbunny))
         {
-            Debug.Log("Ritual Started!");
+            if (deadbunny != null)
+            {
+                Debug.Log("Ritual Started!");
+            }
         }
     }
 }

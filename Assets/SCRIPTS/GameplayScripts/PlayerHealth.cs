@@ -13,12 +13,12 @@ public class PlayerHealth : MonoBehaviour
  
 
     public bool dead;
-    private Animator animator;
+
     private float healthToBe;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+
         currentHealth = maxHealth;
     }
 
@@ -34,7 +34,6 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator LevelReset()
     {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("called");
         dead = false;
         SceneManager.LoadScene("StartScreen");
     }
@@ -51,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine("LevelReset");
             Debug.Log("you are dead");
             DeathSound.Play();
-            animator.Play("Hit");
+
             dead = true;
         }
     }
