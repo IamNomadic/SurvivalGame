@@ -11,19 +11,27 @@ public class BunnyWander : MonoBehaviour
     Vector2 direction;
     float distance;
     Vector2 zero = new Vector2(2,2);
+    float speed;
     private void Update()
     {
         distance = ((float)Math.Sqrt((gameObject.transform.position.x  - PC.transform.position.x)*(gameObject.transform.position.x - PC.transform.position.x) + (gameObject.transform.position.y - PC.transform.position.y) * (gameObject.transform.position.y - PC.transform.position.y)));
-
         Vector2 direction = transform.position - PC.transform.position;
         direction.Normalize();
+        if (distance > 0.9)
+        {
+            speed = 1;
+        }
+        else if (distance < 0.9)
+        {
+            speed = 2;
+        }
         if (targetLock)
         {
-            Debug.Log("im trying to run!!");
-            Debug.Log(direction * -1);
+            
+    
 
-            Debug.Log(targetLock);
-            rb.velocity =  (direction - ;
+            
+            rb.velocity =  direction * speed;
                         
         }
         else if (!targetLock)
@@ -36,7 +44,8 @@ public class BunnyWander : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             targetLock = true;
-            Debug.Log("i smell you");
+            
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,7 +53,6 @@ public class BunnyWander : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             targetLock = false;
-            Debug.Log("i lost you");
         }
     }
    

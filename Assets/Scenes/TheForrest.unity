@@ -180,6 +180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tomato
       objectReference: {fileID: 0}
+    - target: {fileID: 1625624235886496925, guid: c2bfd3a4bbb7c68448750c2aa1c57c1b, type: 3}
+      propertyPath: m_TagString
+      value: Item
+      objectReference: {fileID: 0}
     - target: {fileID: 5565541364133566116, guid: c2bfd3a4bbb7c68448750c2aa1c57c1b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.589913
@@ -232,6 +236,10 @@ PrefabInstance:
       propertyPath: TomatoInvItem
       value: 
       objectReference: {fileID: 11400000, guid: 45a79f40ae9a1304796b6d7aed46f338, type: 2}
+    - target: {fileID: 6447951248930265224, guid: c2bfd3a4bbb7c68448750c2aa1c57c1b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -815,6 +823,7 @@ GameObject:
   - component: {fileID: 600716310}
   - component: {fileID: 600716311}
   - component: {fileID: 600716312}
+  - component: {fileID: 600716313}
   m_Layer: 0
   m_Name: ItemPickup
   m_TagString: Untagged
@@ -849,6 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82779589edae4074280b0bf39fefafaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemsInRange: []
 --- !u!61 &600716312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -894,6 +904,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5510569}
   m_EdgeRadius: 0
+--- !u!114 &600716313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600716309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82779589edae4074280b0bf39fefafaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemsInRange: []
 --- !u!1 &601836799
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2386,10 @@ PrefabInstance:
     - target: {fileID: 1921034492590289922, guid: 715fea52ab8c0e44582020a1a426ffe8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2813081686385560855, guid: 715fea52ab8c0e44582020a1a426ffe8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5614967942792638253, guid: 715fea52ab8c0e44582020a1a426ffe8, type: 3}
       propertyPath: inv
@@ -10723,6 +10750,10 @@ PrefabInstance:
       propertyPath: TomatoInvItem
       value: 
       objectReference: {fileID: 11400000, guid: 45a79f40ae9a1304796b6d7aed46f338, type: 2}
+    - target: {fileID: 6447951248930265224, guid: c2bfd3a4bbb7c68448750c2aa1c57c1b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11411,7 +11442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
