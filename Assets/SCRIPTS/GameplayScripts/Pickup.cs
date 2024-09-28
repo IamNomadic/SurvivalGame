@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplePickup : Interactable
+public class Pickup : Interactable
 {
-    public ItemSO appleInvItem;   
+    public ItemSO InvItem;   
     public void pickup()
     {
         if (ItemInteractable)
         {
-            inv.allItems.Add(appleInvItem);
-            Destroy(gameObject);
+            inv.allItems.Add(InvItem);
+            Destroy(this.gameObject);
             inv.reLoadItems();
         }
     }

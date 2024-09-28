@@ -57,11 +57,6 @@ public class PlayerHealth : MonoBehaviour
     public void OnCollisionEnter2D (Collision2D DeathBox)
     {
        
-       if (DeathBox.gameObject.CompareTag("DeathBox"))
-       {
-                Debug.Log("dead");
-
-        StartCoroutine("LevelReset");
-       }
+     
     }
 }

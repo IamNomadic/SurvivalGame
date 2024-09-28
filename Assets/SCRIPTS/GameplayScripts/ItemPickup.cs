@@ -5,17 +5,29 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public List<GameObject> ItemsInRange = new List<GameObject>();
-    ApplePickup AP;
+    public Pickup pickup;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Item"))
         {
-            Debug.Log("Tagcheck");
-            ApplePickup AP = other.GetComponent<ApplePickup>();
-            AP.pickup();
+
+
+            ItemsInRange.Add(other.gameObject);
+            pickup = other.GetComponent<Pickup>();
+
+            if (other.GetComponent<Pickup>() is Pickup)
+            {
+                
+                pickup.pickup();
+                Debug.Log($"{other.gameObject.name} picked up!");
+            }
+           
         }
-        
-      
     }
-        
+    /*public void PickupWithinRange()
+    {
+        pickup.pickup();
+    }
+    */
 }

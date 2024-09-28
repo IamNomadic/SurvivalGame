@@ -21,7 +21,7 @@ public class ForrestGenerator : MonoBehaviour
         Vector2 pos;
         for (int i = 0; i < 20; i++)
         {
-            Debug.Log(i + "bunnys");
+            Debug.Log((i+1) + "ForrestObjects");
 
             randomItem = Random.Range(0, spawnPool.Count);
             toSpawn = spawnPool[randomItem];

@@ -19,11 +19,11 @@ public class BunnyWander : MonoBehaviour
         direction.Normalize();
         if (distance > 0.9)
         {
-            speed = 1;
+            speed = 0.7f;
         }
         else if (distance < 0.9)
         {
-            speed = 2;
+            speed = 1.5f;
         }
         if (targetLock)
         {

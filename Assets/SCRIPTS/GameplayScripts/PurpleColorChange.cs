@@ -5,36 +5,63 @@ using UnityEngine;
 public class PurpleColorChange : MonoBehaviour
 {
     public  float TimeClock;
-    public  Color FirstGate;
-    public Color SecondGate;
-    public  Color ThirdGate;
     public  Color CurrentGate;
+    public int ritualCount;
+    float R;
+    float G;
+    float B;
+    float A;
     [SerializeField] public SpriteRenderer SR;
     // Start is called before the first frame update
     void Start()
     {
-        
+        R = 1;
+        G = 1;
+        B = 1;
+        A = 1;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        TimeClock = Time.deltaTime + TimeClock;
-        if (TimeClock == 5)
+        TimeClock = TimeClock + Time.deltaTime;
+        SR.color = new Color(R, G, B, A);
+        if(ritualCount == 1 || TimeClock >= 30)
         {
-            SR.material.color = FirstGate;
+            if(R >0.93 && G > 0.75 && B >0.93)
+            {
+                R = R - Time.deltaTime / 300;
+                G = G - Time.deltaTime / 100;
+                B = B - Time.deltaTime / 300;
+                Debug.Log(R);
+                Debug.Log(G);
+                Debug.Log(B);
+            }
         }
-        if (TimeClock == 7)
+        else if (ritualCount == 2 || TimeClock >= 120)
         {
-            SR.material.color = SecondGate;
+            if (R > 0.85 && G > 0.6 && B > 0.85)
+            {
+                R = R - Time.deltaTime / 300;
+                G = G - Time.deltaTime / 100;
+                B = B - Time.deltaTime / 300;
+                Debug.Log(R);
+                Debug.Log(G);
+                Debug.Log(B);
+            }
         }
-        if (TimeClock == 10)
+        else if (ritualCount == 3|| TimeClock >= 240)
         {
-            SR.material.color = ThirdGate;
+            if (R > 0.80 && G > 0.5 && B > 0.80)
+            {
+                R = R - Time.deltaTime / 300;
+                G = G - Time.deltaTime / 100;
+                B = B - Time.deltaTime / 300;
+                Debug.Log(R);
+                Debug.Log(G);
+                Debug.Log(B);
+            }
         }
-
-
-
-
+       
     }
 }

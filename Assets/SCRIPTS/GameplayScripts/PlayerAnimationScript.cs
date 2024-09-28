@@ -49,7 +49,7 @@ public class PlayerAnimationScript : MonoBehaviour
         {
 
             AFeet.Play("FeetRunLeftDown");
-            ALegs.Play("LegsRunLeftDown");
+            ALegs.Play("LegsRunLeftUp");
             ATorso.Play("TorsoRunLeftDown");
             AShoulders.Play("ShouldersRunLeftDown");
             AHead.Play("HeadRunLeftDown");
@@ -61,7 +61,7 @@ public class PlayerAnimationScript : MonoBehaviour
 
 
             AFeet.Play("FeetRunLeftUp");
-            ALegs.Play("LegsRunLeftUp");
+            ALegs.Play("LegsRunLeftDown");
             ATorso.Play("TorsoRunLeftUp");
             AShoulders.Play("ShouldersRunLeftUp");
             AHead.Play("HeadRunLeftUp");
