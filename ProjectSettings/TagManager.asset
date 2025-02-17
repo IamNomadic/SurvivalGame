@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - DeadRabbit
   - Item
+  - Enemy
+  - Trap
+  - DeadBunny
   layers:
   - Default
   - TransparentFX
