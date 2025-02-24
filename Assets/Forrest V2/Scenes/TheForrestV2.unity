@@ -903,11 +903,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6f22f1114026a47918ffae11c89e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemInteractable: 0
-  PH: {fileID: 1023161643}
-  inv: {fileID: 2052801045}
-  itemSelector: {fileID: 2052801043}
-  InvItem: {fileID: 11400000, guid: 45a79f40ae9a1304796b6d7aed46f338, type: 2}
 --- !u!1 &585479531
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,8 +987,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 600716310}
-  - component: {fileID: 600716311}
   - component: {fileID: 600716312}
+  - component: {fileID: 600716313}
   m_Layer: 0
   m_Name: ItemPickup
   m_TagString: Player
@@ -1016,22 +1011,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1023161638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &600716311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600716309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82779589edae4074280b0bf39fefafaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemsInRange: []
-  pickup: {fileID: 0}
-  spikeTrap: {fileID: 0}
-  Inv: {fileID: 2052801045}
 --- !u!61 &600716312
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1077,6 +1056,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.65617764, y: 0.5510569}
   m_EdgeRadius: 0
+--- !u!114 &600716313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600716309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82779589edae4074280b0bf39fefafaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemsInRange: []
+  pickup: {fileID: 0}
+  spikeTrap: {fileID: 0}
+  Inv: {fileID: 2052801045}
 --- !u!1 &601836799
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,11 +1252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed920360796d634f978d11a55983ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseUi: {fileID: 4057269597792420799}
-  OptionsMenu: {fileID: 0}
-  Source: {fileID: 0}
-  ButtonHover: {fileID: 0}
-  ButtonPressed: {fileID: 0}
 --- !u!114 &658579978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,10 +1938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178dbd16b5093fe4582505a6fc33af79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMovement: {fileID: 0}
-  maxHealth: 8
-  currentHealth: 6
-  dead: 0
 --- !u!61 &1023161644
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3740,14 +3726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cf66c0053923c45ab4364ec6073ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
-  spawnPool:
-  - {fileID: 0}
-  quad: {fileID: 0}
-  theWell: {fileID: 0}
-  ritualsCompleted: 0
-  ritualsDone: 0
-  time: 0
 --- !u!4 &1987725941
 Transform:
   m_ObjectHideFlags: 0
