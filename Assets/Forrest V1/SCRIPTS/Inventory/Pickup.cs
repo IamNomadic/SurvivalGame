@@ -20,9 +20,9 @@ public class Pickup : Interactable
         }
         if (ItemInteractable)
         {
-            //inv.allItems.Add(InvItem);
+            inv.allItems.Add(InvItem);
             Destroy(this.gameObject);
-            //inv.reLoadItems();
+            inv.reLoadItems();
             
         }
     }
