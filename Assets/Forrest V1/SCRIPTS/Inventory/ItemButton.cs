@@ -14,5 +14,12 @@ public class ItemButton : MonoBehaviour
         itemImage.sprite = itemData.icon;
         itemName.text = itemData.itemName;
     }
+    public void Drop()
+    {
+        
+    }
+    public void Select(ItemSO itemData)
+    {
 
+    }
 }
