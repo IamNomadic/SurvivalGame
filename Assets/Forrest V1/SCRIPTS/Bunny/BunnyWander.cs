@@ -6,16 +6,15 @@ using UnityEngine;
 public class BunnyWander : MonoBehaviour
 {
     public GameObject PC;
-    bool hit;
-    bool targetLock;
     public SmellZone smellZone;
-
     public RitualGenerator RM;
     public Rigidbody2D rb;
     Vector2 direction;
-    float distance;
     Vector2 zero = new Vector2(2,2);
+    float distance;
     float speed;
+    bool hit;
+    bool targetLock;
     private void Start()
     {
 
