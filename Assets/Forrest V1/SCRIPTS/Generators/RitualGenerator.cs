@@ -6,7 +6,7 @@ using TMPro;
 
 public class RitualGenerator : MonoBehaviour
 {
-    public TextMeshPro timer;
+    //public TextMeshPro timer;
     public List<GameObject> spawnPool;
     public GameObject quad;
     public TheWell theWell;
@@ -16,34 +16,12 @@ public class RitualGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        time = 0;
         ritualsDone = false;
         spawnobjects();
     }
     private void FixedUpdate()
     {
-        timer.text = (Math.Ceiling(time).ToString() + " Time Survived");
-        time += Time.deltaTime;
-        if (time < 14)
-        {
-            ritualsCompleted = 0;
-        }
-        else if (time < 45)
-        {
-            ritualsCompleted = 1;
-        }
-        else if (time < 120)
-        {
-            ritualsCompleted = 2;
-        }
-        else if (time < 200)
-        {
-            ritualsCompleted = 3;
-        }
-        else if (time < 230)
-        {
-            ritualsDone = true;
-        }
+        
     }
     public void spawnobjects()
     {

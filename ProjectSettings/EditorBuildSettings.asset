@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Forrest V1/Scenes/Title.unity
     guid: 8c518dc5821d02a438fc2339af2c0769
   - enabled: 0

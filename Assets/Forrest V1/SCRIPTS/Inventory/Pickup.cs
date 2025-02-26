@@ -13,16 +13,12 @@ public class Pickup : Interactable
     }
     public void pickup()
     {
-        if (PH.currentHealth < PH.maxHealth && ItemInteractable)
-        {
-            PH.HealDamage(InvItem.Stats);
-            Debug.Log("Heal");
-        }
         if (ItemInteractable)
         {
             inv.allItems.Add(InvItem);
             Destroy(this.gameObject);
             inv.reLoadItems();
+            Debug.Log("pickup");
             
         }
     }
