@@ -5,9 +5,7 @@ using UnityEngine;
 public class Interactable : MonoBehaviour
 {
     public bool ItemInteractable;
-    public PlayerHealth PH;
-    public ItemSelector inv;
-    public GameObject itemSelector;
+    ItemSelector inv;
     private void Start()
     {
         inv = GameObject.FindObjectOfType<ItemSelector>();

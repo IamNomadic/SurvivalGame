@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: WoodTrapSO
   m_EditorClassIdentifier: 
   id: 0
-  Stats: 0
+  Stats: -1
   itemName: Wood Trap
   itemDescription: 
   icon: {fileID: 21300000, guid: 1f49f7bf6fbab224088802da194c754e, type: 3}
   worldItem: {fileID: 4506372937418007430, guid: a722919bd1257a1488c6b6206c7bed68, type: 3}
+  ItemEffect: {fileID: 0}

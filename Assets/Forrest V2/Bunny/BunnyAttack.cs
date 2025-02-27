@@ -6,7 +6,7 @@ public class BunnyAttack : MonoBehaviour
 {
     public RitualGenerator RM;
 
-    public PlayerHealth PH;
+    public PlayerStats PH;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (RM.ritualsCompleted >= 0)

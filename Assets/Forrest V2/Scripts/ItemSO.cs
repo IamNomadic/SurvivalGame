@@ -11,7 +11,7 @@ public class ItemSO : ScriptableObject
     [SerializeField] public string itemDescription;
     [SerializeField] public Sprite icon;
     [SerializeField] public GameObject worldItem;
-    
-  
-    
+    [SerializeField] public GameObject ItemEffect;
+
+
 }

@@ -4,11 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerStats : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public int maxHealth;
-    public int currentHealth;
+    public int CurrentStamina;
+    public int MaxStamina;
+    public int MaxHealth;
+    public int CurrentHealth;
  
 
     public bool dead;
@@ -16,13 +18,13 @@ public class PlayerHealth : MonoBehaviour
     private void Start()
     {
 
-        currentHealth = maxHealth;
+
     }
 
     // Update is called once per frame
     private void Update()
     {
-        if (currentHealth >= maxHealth) currentHealth = maxHealth;
+        if (CurrentHealth >= MaxHealth) CurrentHealth = MaxHealth;
        
     }
 
@@ -37,11 +39,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        CurrentHealth -= damage;
       
        
         OnPlayerDamaged?.Invoke();
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             StartCoroutine("LevelReset");
             Debug.Log("you are dead");
@@ -52,11 +54,11 @@ public class PlayerHealth : MonoBehaviour
     }
     public void HealDamage(int Health)
     {
-        currentHealth += Health;
+        CurrentHealth += Health;
 
 
         OnPlayerDamaged?.Invoke();
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             StartCoroutine("LevelReset");
             Debug.Log("you are dead");

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class ItemSelector : MonoBehaviour
 {
-    public PlayerHealth PH;
+    public PlayerStats PH;
     public ItemSelectorUI UI;
     public event Action<ItemSO> OnItemLoad;
     public event Action<ItemSO> OnItemSelected;
@@ -46,7 +46,7 @@ public class ItemSelector : MonoBehaviour
         _selectedItem = itemData;
         if (itemData.Stats>0)
         {
-            PH.currentHealth = PH.currentHealth + itemData.Stats;
+            PH.CurrentHealth = PH.CurrentHealth + itemData.Stats;
             
 
         }

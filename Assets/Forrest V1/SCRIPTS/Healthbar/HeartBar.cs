@@ -4,7 +4,7 @@ using UnityEngine;
 public class HeartBar : MonoBehaviour
 {
     public GameObject heartPrefab;
-    public PlayerHealth playerHealth;
+    public PlayerStats playerHealth;
     public PlayerMovement playerMovement;
     private List<HealthHeart> hearts = new();
 
@@ -15,25 +15,25 @@ public class HeartBar : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerHealth.OnPlayerDamaged += DrawHearts;
+        PlayerStats.OnPlayerDamaged += DrawHearts;
         PlayerMovement.OnPlayerDamaged += DrawHearts;
     }
 
     private void OnDisable()
     {
-        PlayerHealth.OnPlayerDamaged -= DrawHearts;
+        PlayerStats.OnPlayerDamaged -= DrawHearts;
         PlayerMovement.OnPlayerDamaged -= DrawHearts;
     }
 
     public void DrawHearts()
     {
         ClearHearts();
-        float maxHealthRemainder = playerHealth.maxHealth % 2;
-        var heartsToMake = (int)(playerHealth.maxHealth / 2 + maxHealthRemainder);
+        float maxHealthRemainder = playerHealth.MaxHealth % 2;
+        var heartsToMake = (int)(playerHealth.MaxHealth / 2 + maxHealthRemainder);
         for (var i = 0; i < heartsToMake; i++) CreateEmptyHeart();
         for (var i = 0; i < hearts.Count; i++)
         {
-            var heartStatusRemainder = Mathf.Clamp(playerHealth.currentHealth - i * 2, 0, 2);
+            var heartStatusRemainder = Mathf.Clamp(playerHealth.CurrentHealth - i * 2, 0, 2);
             hearts[i].SetHeartImage((HeartStatus)heartStatusRemainder);
         }
     }
