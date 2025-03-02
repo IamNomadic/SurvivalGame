@@ -1501,6 +1501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed920360796d634f978d11a55983ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseUi: {fileID: 0}
+  OptionsMenu: {fileID: 0}
+  Source: {fileID: 0}
+  ButtonHover: {fileID: 0}
+  ButtonPressed: {fileID: 0}
 --- !u!114 &658579978
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4258,7 +4263,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0cf66c0053923c45ab4364ec6073ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPool: []
+  spawnPool:
+  - {fileID: 6920066061133042019, guid: b49ae16742407974cbd0dc2e62e49b29, type: 3}
+  - {fileID: 4373003752024152278, guid: 915df41d25267b244b58961f44f88fa9, type: 3}
+  - {fileID: 8495925545662250969, guid: 81bdaf89ec31fff4bb7a2df9227e9c88, type: 3}
   quad: {fileID: 1987725939}
   theWell: {fileID: 1833329505}
   ritualsCompleted: 0

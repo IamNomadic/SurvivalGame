@@ -8,11 +8,12 @@ public class RitualGenerator : MonoBehaviour
 {
     //public TextMeshPro timer;
     public List<GameObject> spawnPool;
-    public GameObject quad;
-    public TheWell theWell;
+    public GameObject SpawnZoneCollider;
+    public TheWell TheWell;
     public int ritualsCompleted;
-    public bool ritualsDone;
-    public float time;
+    public int RitualsToComplete;
+    public bool RitualsDone;
+    public GameTimer GT;
     // Start is called before the first frame update
     void Start()
     {
