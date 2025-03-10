@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class RitualActivation : MonoBehaviour
 {
+    GameTimer GT;
+    bool RitualComplete;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GT = GameObject.FindObjectOfType<GameTimer>();
+
     }
 
     // Update is called once per frame
@@ -17,12 +20,13 @@ public class RitualActivation : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Ritual collider");
-
-        if (collision.CompareTag("DeadBunny"))
+        if (collision.CompareTag("Item") && !RitualComplete)
         {
-            Debug.Log("Ritual Started!");
-            
+            GT.RitualsCompleted++;
+            RitualComplete = true;
         }
+        
+
+        
     }
 }

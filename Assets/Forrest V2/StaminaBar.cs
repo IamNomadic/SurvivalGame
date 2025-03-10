@@ -30,12 +30,12 @@ public class StaminaBar : MonoBehaviour
     public void DrawApples()
     {
         ClearApples();
-        float maxStaminaRemainder = playerHealth.MaxStamina % 3;
-        var ApplesToMake = (int)(playerHealth.MaxStamina / 3 + maxStaminaRemainder);
+        float maxStaminaRemainder = playerHealth.MaxHunger % 3;
+        var ApplesToMake = (int)(playerHealth.MaxHunger / 3 + maxStaminaRemainder);
         for (var i = 0; i < ApplesToMake; i++) CreateEmptyApples();
         for (var i = 0; i < Apples.Count; i++)
         {
-            var StaminaStatusRemainder = Mathf.Clamp(playerHealth.MaxStamina - i * 3, 0, 3);
+            var StaminaStatusRemainder = Mathf.Clamp(playerHealth.CurrentHunger - i * 3, 0, 3);
             Apples[i].SetAppleImage((StaminaStatus)StaminaStatusRemainder);
         }
     }

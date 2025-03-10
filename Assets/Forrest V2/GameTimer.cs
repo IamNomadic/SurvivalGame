@@ -6,25 +6,25 @@ public class GameTimer : MonoBehaviour
 {
     public float TotalTime;// Total Game Time 
     float LastRitualTime;// Time Since Last Ritual
-    float LastRitualTimeGate;//Time To cap Last Ritual Time 
+    [SerializeField] float LastRitualTimeGate;//Time To cap Last Ritual Time 
     public int RitualsCompleted;//Number Of Rituals Completed
     bool TempCap;
-    int GameBaseDifficultyCap;//Set By Rituals 
+    public int GameBaseDifficultyCap;//Set By Rituals 
     float GameModifierDifficulty;//Set by Time Since Last Ritual
     public float CurrentDifficulty;//Actual Difficiulty Value Used By Game
     void Start()
     {
-
+        TempCap = false;
     }
     void FixedUpdate ()
     {
         TotalTime = Time.deltaTime + TotalTime;
+        GameBaseDifficultyCap = RitualsCompleted;
         //Debug.Log(LastRitualTime);
 
         if(LastRitualTime<=LastRitualTimeGate && TempCap == false)
         {
             GameModifierDifficulty = (LastRitualTime/LastRitualTimeGate);
-            Debug.Log("Setting Game GameModifierDifficulty");
             CalculateGameDifficulty();
             LastRitualTime = Time.deltaTime + LastRitualTime;
         }
@@ -34,14 +34,14 @@ public class GameTimer : MonoBehaviour
             LastRitualTime = 0;
         }
 
-        
+        CalculateGameDifficulty();
         
 
     }
     void CalculateGameDifficulty()
     {
             CurrentDifficulty = (GameBaseDifficultyCap+GameModifierDifficulty);
-            Debug.Log(CurrentDifficulty);
+            
     }
     
     void ChangeGameState()

@@ -7,28 +7,55 @@ using UnityEngine.SceneManagement;
 public class PlayerStats : MonoBehaviour
 {
     public PlayerMovement playerMovement;
-    public int CurrentStamina;
-    public int MaxStamina;
+
+    public int CurrentHunger;
+    public int MaxHunger;
+    public int HungerTickTimeGate;
+    [SerializeField]float HungerTickTime;
     public int MaxHealth;
     public int CurrentHealth;
- 
-
     public bool dead;
-
+    bool Starving;
+    bool OutOfHunger= false;
+    public static event Action OnPlayerDamaged;
     private void Start()
     {
-
+        OutOfHunger = false;
 
     }
 
     // Update is called once per frame
-    private void Update()
+    public void FixedUpdate()
     {
-        if (CurrentHealth >= MaxHealth) CurrentHealth = MaxHealth;
-       
+        if (OutOfHunger == false || Starving == true)
+        {
+            HungerTickTime += Time.deltaTime;
+
+        }
+        
+        if (HungerTickTime >=HungerTickTimeGate)
+        {
+            HungerTickTime = 0;
+            CurrentHunger--;
+            if (Starving)
+            {
+                TakeDamage(1);
+            }
+            OnPlayerDamaged?.Invoke();
+
+            Debug.Log("lost 1 hunger");
+
+        }
+        if(CurrentHunger <=0)
+        {
+            OutOfHunger = true;
+            Starving = true;
+            
+        }
+
     }
 
-    public static event Action OnPlayerDamaged;
+    
 
     private IEnumerator LevelReset()
     {
@@ -66,6 +93,13 @@ public class PlayerStats : MonoBehaviour
 
             dead = true;
         }
+    }
+    public void GainHunger(int Hunger)
+    {
+        CurrentHunger += Hunger;
+
+
+        OnPlayerDamaged?.Invoke();
     }
     public void OnCollisionEnter2D (Collision2D DeathBox)
     {

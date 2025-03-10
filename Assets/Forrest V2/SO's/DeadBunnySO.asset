@@ -17,4 +17,5 @@ MonoBehaviour:
   itemName: DeadBunny
   itemDescription: 
   icon: {fileID: 21300000, guid: 2644676fdcc51064ebd76cd9d059d14e, type: 3}
-  worldItem: {fileID: 2087943176370477019, guid: 0414f9340512a494c916b8a189e041e6, type: 3}
+  worldItem: {fileID: 2087943176370477019, guid: acf70f4d0120591478650341b70ff8ea, type: 3}
+  ItemEffect: {fileID: 0}

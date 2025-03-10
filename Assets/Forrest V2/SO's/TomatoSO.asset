@@ -17,4 +17,5 @@ MonoBehaviour:
   itemName: Tomato
   itemDescription: Heals a Full Heart
   icon: {fileID: 21300000, guid: 65dbb60acd1f6b94fbf47a581fb1a9a5, type: 3}
-  worldItem: {fileID: 1625624235886496925, guid: c2bfd3a4bbb7c68448750c2aa1c57c1b, type: 3}
+  worldItem: {fileID: 1625624235886496925, guid: 1c5e17cca387b87459993f41aa2b6f77, type: 3}
+  ItemEffect: {fileID: 0}

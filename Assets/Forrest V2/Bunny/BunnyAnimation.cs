@@ -9,12 +9,16 @@ public class BunnyAnimation : MonoBehaviour
     public SpriteRenderer SR;
     public Rigidbody2D BunnyRB;
     public Animator BunnyAnimator;
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isFacingRight && BunnyRB.velocity.x > 0f)
             Flip();
         else if (isFacingRight && BunnyRB.velocity.x < 0f) Flip();
         if (BunnyRB.velocity.x >0.01|| BunnyRB.velocity.x < -0.01)
+        {
+            BunnyAnimator.Play("BunnyWalk");
+        }
+        else if (BunnyRB.velocity.y > 0.01 || BunnyRB.velocity.y < -0.01)
         {
             BunnyAnimator.Play("BunnyWalk");
         }

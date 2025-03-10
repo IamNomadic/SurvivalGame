@@ -7,7 +7,7 @@ public class BunnyHealth : MonoBehaviour
     public bool Dead;
     public GameObject DeadBunnyPrefab;
     public BunnyWander BW;
-    public Transform Bunny;
+   
     public int BunnyHP;
     private void Start()
     {

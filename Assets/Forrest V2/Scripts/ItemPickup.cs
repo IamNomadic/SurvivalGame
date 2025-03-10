@@ -1,6 +1,11 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
+
 
 public class ItemPickup : MonoBehaviour
 {
@@ -8,10 +13,15 @@ public class ItemPickup : MonoBehaviour
     public Pickup Pickup;
     public ActivatedSpikeTrap Trap;
     public ItemSelector Inv;
-  
-    
+    PlayerStats Stats;
+    [SerializeField] AudioSource ItemPickupSound;
+    public static event Action OnPlayerDamaged;
 
 
+    private void Start()
+    {
+        Stats = GameObject.FindObjectOfType<PlayerStats>();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Item"))
@@ -30,8 +40,26 @@ public class ItemPickup : MonoBehaviour
 
     public void PickupItems()
     {
+        OnPlayerDamaged?.Invoke();
         if (Pickup.ItemInteractable)
         {
+            Debug.Log("StatChange");
+            if (Pickup.InvItem.Stats > 0)
+            {
+                if (Stats.CurrentHealth + Pickup.InvItem.Stats < Stats.MaxHealth+1)
+                {
+                    Stats.HealDamage(Pickup.InvItem.Stats);
+                    
+                }
+                if (Stats.CurrentHunger + Pickup.InvItem.Stats < Stats.MaxHunger+1)
+                {
+                    Stats.GainHunger(Pickup.InvItem.Stats);
+                    
+                }
+            }
+
+            
+            ItemPickupSound.Play();
             Inv.allItems.Add(Pickup.InvItem);
             Destroy(Pickup.gameObject);
             
@@ -49,6 +77,7 @@ public class ItemPickup : MonoBehaviour
             }
             Inv.reLoadItems();
         }
+        OnPlayerDamaged?.Invoke();
     }
     
 }

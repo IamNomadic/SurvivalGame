@@ -5,32 +5,59 @@ using UnityEngine;
 
 public class BunnyWander : MonoBehaviour
 {
-    public GameObject PC;
+    public GameObject PlayerCharacter;
     public SmellZone smellZone;
-    public RitualGenerator RM;
+    public GameTimer GT;
     public Rigidbody2D rb;
     Vector2 direction;
+    Vector2 WanderDirection;
     Vector2 zero = new Vector2(2,2);
     float distance;
     float speed;
+    float LocalTime;
     bool hit;
     bool targetLock;
+    
+    private void Awake()
+    {
+        PlayerCharacter = GameObject.FindGameObjectWithTag("Player");
+        GT = GameObject.FindObjectOfType<GameTimer>();
+
+    }
     private void Start()
     {
-
-        if(RM.ritualsCompleted >= 3)
+        
+        GameTimer GT = GetComponent<GameTimer>();
+        if (GT.CurrentDifficulty > 2)
         {
             this.transform.localScale = new Vector3(0.6f, 0.6f, 1);
         }
     }
     private void Update()
     {
-        distance = ((float)Math.Sqrt((gameObject.transform.position.x  - PC.transform.position.x)*(gameObject.transform.position.x - PC.transform.position.x) + (gameObject.transform.position.y - PC.transform.position.y) * (gameObject.transform.position.y - PC.transform.position.y)));
-        Vector2 direction = transform.position - PC.transform.position;
-        direction.Normalize();
+        distance = ((float)Math.Sqrt((gameObject.transform.position.x  - PlayerCharacter.transform.position.x)*(gameObject.transform.position.x - PlayerCharacter.transform.position.x) + (gameObject.transform.position.y - PlayerCharacter.transform.position.y) * (gameObject.transform.position.y - PlayerCharacter.transform.position.y)));
         
+        Vector2 direction = transform.position - PlayerCharacter.transform.position;
+        LocalTime = LocalTime + Time.deltaTime;
+        if (LocalTime>= 4)
+        {
+            WanderDirection = new Vector2(UnityEngine.Random.Range(-1, 2), UnityEngine.Random.Range(-1, 2)) * 0.2f;
+            LocalTime = 0;
+            Debug.Log(WanderDirection);
+        }
+        direction.Normalize();
+
+        if (smellZone.targetLock)
+        {
+            rb.velocity = direction * speed;
+            WanderDirection = new Vector2(0, 0);
+        }
+        else if (!smellZone.targetLock)
+        {
+            rb.velocity = WanderDirection;
+        }
         #region Phase 1
-        if (RM.ritualsCompleted == 0)
+        if (GT.CurrentDifficulty <= 0.8f)
         {
             if (distance > 0.9 &&!hit)
             {
@@ -40,18 +67,11 @@ public class BunnyWander : MonoBehaviour
             {
                 speed = 1.5f;
             }
-            if (smellZone.targetLock)
-            {
-                rb.velocity = direction * speed;
-            }
-            else if (!smellZone.targetLock)
-            {
-                rb.velocity = rb.velocity / zero;
-            }
+
         }
         #endregion
         #region Phase 2
-        if (RM.ritualsCompleted == 1)
+        else if (GT.CurrentDifficulty <1.8)
         {
             if (distance > 1.0 && !hit)
             {
@@ -63,27 +83,20 @@ public class BunnyWander : MonoBehaviour
             }
             else if (distance > 0.1 && !hit)
             {
-                speed = -1.5f;
+                speed = -1.8f;
             }
             else if (distance < 0.1)
             {
-                speed = 1.5f;
+                speed = 1.8f;
                 hit = true;
                 StartCoroutine(HitPlayer());
-            }
-            if (smellZone.targetLock)
-            {
-                rb.velocity = direction * speed;
-            }
-            else if (!smellZone.targetLock)
-            {
-                rb.velocity = rb.velocity / zero;
             }
         }
         #endregion
         #region Phase 3
-        if (RM.ritualsCompleted >= 2)
+        else if (GT.CurrentDifficulty <2.8)
         {
+            rb.velocity = direction * 1f;
             if (distance > 1.4 && !hit)
             {
                 speed = -0.5f;
@@ -94,26 +107,18 @@ public class BunnyWander : MonoBehaviour
             }
             else if (distance > 0.1 && !hit)
             {
-                speed = -1.5f;
+                speed = -1.8f;
             }
             else if (distance < 0.1)
             {
-                speed = 1.5f;
+                speed = 1.8f;
                 hit = true;
                 StartCoroutine(HitPlayer());
-            }
-            if (smellZone.targetLock)
-            {
-                rb.velocity = direction * speed;
-            }
-            else if (!smellZone.targetLock)
-            {
-                rb.velocity = rb.velocity / zero;
             }
         }
         #endregion
         #region Phase 4
-        if (RM.ritualsCompleted >= 3)
+        else if (GT.CurrentDifficulty < 3.8)
         {
             rb.velocity = direction*-0.2f;
             if (distance > 1.4 && !hit)
@@ -130,21 +135,13 @@ public class BunnyWander : MonoBehaviour
             }
             else if (distance < 0.1 && !hit)
             {
-                speed = -1.5f;
+                speed = -1.8f;
             }
             else if (distance < 0.1)
             {
-                speed = 1.5f;
+                speed = 1.8f;
                 hit = true;
                 StartCoroutine(HitPlayer());
-            }
-            if (smellZone.targetLock)
-            {
-                rb.velocity = direction * speed;
-            }
-            else if (!smellZone.targetLock)
-            {
-                rb.velocity = rb.velocity / zero;
             }
         }
         #endregion

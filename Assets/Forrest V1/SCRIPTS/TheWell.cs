@@ -10,10 +10,10 @@ public class TheWell : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("pre");
-        Debug.Log(RG.ritualsDone);
+        Debug.Log(RG.RitualsDone);
 
 
-        if (collision.CompareTag("Player")&&RG.ritualsDone)
+        if (collision.CompareTag("Player")&&RG.RitualsDone)
         {
             Debug.Log("post");
 
