@@ -14,9 +14,8 @@ public class StartMenu : MonoBehaviour
     }
     public void OnPlayButton()
     {
-        Source.PlayOneShot(ButtonPressed);
-        Source.PlayOneShot(StartSFX);
-        StartCoroutine(StartScene());
+        
+        SceneManager.LoadScene("TheForrestV2");
     }
 
     public void OnHover()

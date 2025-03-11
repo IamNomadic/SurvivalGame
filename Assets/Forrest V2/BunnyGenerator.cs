@@ -47,7 +47,7 @@ public class BunnyGenerator : MonoBehaviour
 
         float screenX, screenY;
         Vector2 pos;
-        for (int i = 0; i < BunniesToSpawn && SpawnBunnys; i++)
+        for (int i = 0; BunniesSpawned <= BunniesToSpawn && SpawnBunnys; i++)
         {
             Col = Random.Range(1, 4);
             if (Col==1)
@@ -79,6 +79,7 @@ public class BunnyGenerator : MonoBehaviour
             pos = new Vector2(screenX, screenY);
             Instantiate(toSpawn, pos, toSpawn.transform.rotation);
             SpawnBunnys = false;
+            BunniesSpawned++;
             SpawnCooldown = SpawnFrequency;
             
         }
