@@ -14,6 +14,12 @@ public class PlayerMovement : MonoBehaviour
     public float horizontal;
     public float vertical;
     public Rigidbody2D rB;
+    public float StepTime;
+    public float TimeToStep;
+    public AudioSource PlayerAudio;
+    public AudioClip Step1;
+    public AudioClip Step2;
+    bool Walking;
     private void Awake()
     {
         MovementEnabled = true;
@@ -46,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (MovementEnabled)
         {
+            
             horizontal = context.x;
             vertical = context.y;
         }
@@ -57,6 +64,23 @@ public class PlayerMovement : MonoBehaviour
         if (!isFacingRight && horizontal > 0f)
             Flip();
         else if (isFacingRight && horizontal < 0f) Flip();
+        StepTime = StepTime + Time.deltaTime;
+        if (horizontal > 0.1f || vertical > 0.1f|| horizontal < -0.1f || vertical < -0.1f)
+        {
+            Walking = true;
+            Debug.Log("Walking");
+            if(StepTime > TimeToStep)
+            {
+                PlayerAudio.Play();
+                StepTime = 0;
+            }
+        }
+        else
+        {
+            Walking = false;
+            PlayerAudio.Stop();
+            Debug.Log("not Walking");
+        }
     }
     private void Flip()
     {

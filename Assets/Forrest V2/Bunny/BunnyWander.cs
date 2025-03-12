@@ -96,7 +96,7 @@ public class BunnyWander : MonoBehaviour
         #region Phase 3
         else if (GT.CurrentDifficulty <2.8)
         {
-            rb.velocity = direction * 1f;
+
             if (distance > 1.4 && !hit)
             {
                 speed = -0.5f;

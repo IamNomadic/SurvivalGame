@@ -56,7 +56,7 @@ public class PauseMenu : MonoBehaviour
     public void OnExitButton()
     {
         Source.PlayOneShot(ButtonPressed);
-        StartCoroutine(ExitGame());
+        ExitGame();
     }
     public void OnDeathExit()
     {
@@ -64,11 +64,12 @@ public class PauseMenu : MonoBehaviour
         StartCoroutine(ReturnToTitle());
     }
     
-    IEnumerator ExitGame()
+    void ExitGame()
     {
-        yield return new WaitForSeconds(1f);
+        
         Debug.Log("Exited Game");
-        Application.Quit();
+        SceneManager.LoadScene("Title");
+
     }
     IEnumerator RestartGame()
     {

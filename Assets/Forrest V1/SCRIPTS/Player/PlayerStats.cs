@@ -55,7 +55,11 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    
+    public void RefreshHud()
+    {
+        OnPlayerDamaged?.Invoke();
+
+    }
 
     private IEnumerator LevelReset()
     {

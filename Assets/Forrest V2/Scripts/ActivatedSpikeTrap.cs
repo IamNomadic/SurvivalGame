@@ -12,6 +12,7 @@ public class ActivatedSpikeTrap : MonoBehaviour
     public GameObject DeadBunny;
     public Sprite UsedTrap;
     public SpriteRenderer SR;
+    public AudioSource TrapAudio;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class ActivatedSpikeTrap : MonoBehaviour
             }
 
             Bunny.TakeDMG(1);
+            TrapAudio.Play();
             
 
 
