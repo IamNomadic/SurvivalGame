@@ -9,8 +9,8 @@ public class RitualGenerator : MonoBehaviour
     //public TextMeshPro timer;
     public List<GameObject> spawnPool;
     [SerializeField] GameObject SpawnZoneCollider;
-    public int ritualsCompleted;
-    public int RitualsToComplete;
+    public int RitualsGenerated;
+    public int RitualsToGenerate;
     public bool RitualsDone;
 
     // Start is called before the first frame update
@@ -31,9 +31,9 @@ public class RitualGenerator : MonoBehaviour
         
         float screenX, screenY;
         Vector2 pos;
-        for(int i = 0; i < 3; i++)
+        for(RitualsGenerated = 0; RitualsGenerated < RitualsToGenerate; RitualsGenerated++)
         {
-            Debug.Log("ritual"+i);
+            Debug.Log("ritual"+RitualsGenerated);
 
             randomItem = UnityEngine.Random.Range(0, spawnPool.Count);
             toSpawn = spawnPool[randomItem];

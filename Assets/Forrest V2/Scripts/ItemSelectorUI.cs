@@ -12,6 +12,7 @@ public class ItemSelectorUI : MonoBehaviour
     [SerializeField] ItemButton itemButtonPrefab;
     [SerializeField] public Transform itemButtonPanel;
     [SerializeField] public GameObject itemButtonPanelGameObject;
+    PlayerStats PS;
     // Weapon Stats
     [Header("Item Info Box")]
     [SerializeField] TMP_Text txtName;
@@ -21,6 +22,7 @@ public class ItemSelectorUI : MonoBehaviour
 
     private void OnEnable()
     {
+        PS = GameObject.FindObjectOfType<PlayerStats>();
         itemSelector.OnItemLoad += PopulateItemButton;
         itemSelector.OnItemSelected += PopulateItemSelection;
     }
@@ -38,7 +40,8 @@ public class ItemSelectorUI : MonoBehaviour
         // set event listener to button for item
         Button button = newButton.GetComponent<Button>();
         button.onClick.AddListener( () => {
-             Instantiate(itemData.worldItem,player.transform.position,player.transform.rotation, Holder.transform); itemSelector.allItems.Remove(itemData); itemSelector.reLoadItems();
+            if (itemData.Stats > 0) { itemSelector.allItems.Remove(itemData); PS.HealDamage(itemData.Stats); PS.GainHunger(itemData.Stats); itemSelector.reLoadItems(); }
+            else { Instantiate(itemData.worldItem, player.transform.position, player.transform.rotation, Holder.transform); itemSelector.allItems.Remove(itemData); itemSelector.reLoadItems(); }
         } );//lambda function
 
     }

@@ -15,12 +15,16 @@ public class PlayerStats : MonoBehaviour
     public int MaxHealth;
     public int CurrentHealth;
     public bool dead;
+    public bool RitualsDone;
     bool Starving;
     bool OutOfHunger= false;
+    public int RitualsCompleted;
+    public int RitualsToComplete;
     public static event Action OnPlayerDamaged;
     private void Start()
     {
         OutOfHunger = false;
+        RitualsDone = false;
 
     }
 
@@ -51,6 +55,10 @@ public class PlayerStats : MonoBehaviour
             OutOfHunger = true;
             Starving = true;
             
+        }
+        if (RitualsCompleted>=RitualsToComplete)
+        {
+            RitualsDone = true;
         }
 
     }
@@ -85,7 +93,11 @@ public class PlayerStats : MonoBehaviour
     }
     public void HealDamage(int Health)
     {
-        CurrentHealth += Health;
+        if (CurrentHealth + Health < MaxHealth+1)
+        {
+            CurrentHealth += Health;
+        }
+        
 
 
         OnPlayerDamaged?.Invoke();
@@ -100,7 +112,9 @@ public class PlayerStats : MonoBehaviour
     }
     public void GainHunger(int Hunger)
     {
-        CurrentHunger += Hunger;
+        if (CurrentHunger +Hunger <MaxHunger+1)
+        { CurrentHunger += Hunger; }
+       
 
 
         OnPlayerDamaged?.Invoke();

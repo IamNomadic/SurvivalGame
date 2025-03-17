@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Trap
   - DeadBunny
+  - Timer
+  - Ritual
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AppleSO
   m_EditorClassIdentifier: 
   id: 1
-  Stats: 1
+  Stats: 2
   itemName: Apple
   itemDescription: Heals Half a Heart
   icon: {fileID: 21300000, guid: 2b93a9513844ecf4c95b9c36caa1cf35, type: 3}

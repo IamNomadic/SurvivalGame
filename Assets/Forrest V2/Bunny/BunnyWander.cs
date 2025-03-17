@@ -59,6 +59,10 @@ public class BunnyWander : MonoBehaviour
         #region Phase 1
         if (GT.CurrentDifficulty <= 0.8f)
         {
+            if (distance > 2 && !hit)
+            {
+                speed = 0f;
+            }
             if (distance > 0.9 &&!hit)
             {
                 speed = 0.7f;
@@ -71,17 +75,22 @@ public class BunnyWander : MonoBehaviour
         }
         #endregion
         #region Phase 2
-        else if (GT.CurrentDifficulty <1.8)
+        else if (GT.CurrentDifficulty <2)
         {
-            if (distance > 1.0 && !hit)
+            
+            if (distance > 2 && !hit)
             {
-                speed = 0.7f;
+                speed = 0f;
+            }
+            else if (distance > 0.8 && !hit)
+            {
+                speed = -0.2f;
             }
             else if (distance > 0.4 && !hit)
             {
                 speed = -0.5f;
             }
-            else if (distance > 0.1 && !hit)
+            else if (distance > 0.2 && !hit)
             {
                 speed = -1.8f;
             }
@@ -94,18 +103,22 @@ public class BunnyWander : MonoBehaviour
         }
         #endregion
         #region Phase 3
-        else if (GT.CurrentDifficulty <2.8)
+        else if (GT.CurrentDifficulty <3)
         {
 
-            if (distance > 1.4 && !hit)
+            if (distance > 5 && !hit)
             {
-                speed = -0.5f;
+                speed = 0f;
+            }
+            else if (distance > 1.0 && !hit)
+            {
+                speed = -0.2f;
             }
             else if (distance > 0.4 && !hit)
             {
-                speed = -0.7f;
+                speed = -0.5f;
             }
-            else if (distance > 0.1 && !hit)
+            else if (distance > 0.2 && !hit)
             {
                 speed = -1.8f;
             }
@@ -118,22 +131,24 @@ public class BunnyWander : MonoBehaviour
         }
         #endregion
         #region Phase 4
-        else if (GT.CurrentDifficulty < 3.8)
+        else if (GT.CurrentDifficulty < 4)
         {
-            rb.velocity = direction*-0.2f;
-            if (distance > 1.4 && !hit)
+
+            
+            if (distance > 5 && !hit)
             {
-                speed = -0.7f;
+                speed = -0.2f;
             }
-            else if (distance > 1 && !hit)
+
+            else if (distance > 1.0 && !hit)
             {
-                speed = -0.9f;
+                speed = -0.4f;
             }
             else if (distance > 0.4 && !hit)
             {
-                speed = -1.3f;
+                speed = -0.6f;
             }
-            else if (distance < 0.1 && !hit)
+            else if (distance > 0.2 && !hit)
             {
                 speed = -1.8f;
             }

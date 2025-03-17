@@ -6,16 +6,24 @@ public class PurpleColorChange : MonoBehaviour
 {
     public  float TimeClock;
     public  Color CurrentGate;
-    public RitualGenerator RM;
+    public PlayerStats PS;
 
     float R;
     float G;
     float B;
     float A;
     [SerializeField] public SpriteRenderer SR;
+    bool Transform1;
+    bool Transform2;
+    bool Transform3;
+
     // Start is called before the first frame update
     void Start()
     {
+        Transform1 = true;
+        Transform2 = true;
+        Transform3 = true;
+        PS = GameObject.FindObjectOfType<PlayerStats>();
         R = 1;
         G = 1;
         B = 1;
@@ -27,7 +35,7 @@ public class PurpleColorChange : MonoBehaviour
     {
         TimeClock = TimeClock + Time.deltaTime;
         SR.color = new Color(R, G, B, A);
-        if(RM.ritualsCompleted == 1)
+        if(PS.RitualsCompleted == 1)
         {
             if(R >0.93 && G > 0.75 && B >0.93)
             {
@@ -36,8 +44,13 @@ public class PurpleColorChange : MonoBehaviour
                 B = B - Time.deltaTime / 300;
 
             }
+            if (Transform1)
+            {
+                this.gameObject.transform.localScale = this.gameObject.transform.localScale * 1.2f;
+                Transform1 = false;
+            }
         }
-        else if (RM.ritualsCompleted == 2)
+        else if (PS.RitualsCompleted == 2)
         {
             if (R > 0.85 && G > 0.6 && B > 0.85)
             {
@@ -46,17 +59,28 @@ public class PurpleColorChange : MonoBehaviour
                 B = B - Time.deltaTime / 300;
 
             }
+            if (Transform2)
+            {
+                this.gameObject.transform.localScale = this.gameObject.transform.localScale * 1.2f;
+                Transform2 = false;
+            }
+
         }
-        else if (RM.ritualsCompleted == 3)
+        else if (PS.RitualsCompleted == 3)
         {
             if (R > 0.80 && G > 0.5 && B > 0.80)
             {
                 R = R - Time.deltaTime / 300;
                 G = G - Time.deltaTime / 100;
                 B = B - Time.deltaTime / 300;
-                Debug.Log("Called");
+
             }
-        }
+            if (Transform3)
+            {
+                this.gameObject.transform.localScale = this.gameObject.transform.localScale * 1.2f;
+                Transform3 = false;
+            }
+            }
        
     }
 }

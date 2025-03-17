@@ -21,7 +21,7 @@ public class PauseMenu : MonoBehaviour
             PauseGame();
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         
         Time.timeScale = 1;

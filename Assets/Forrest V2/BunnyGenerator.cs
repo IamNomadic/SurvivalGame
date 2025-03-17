@@ -38,6 +38,10 @@ public class BunnyGenerator : MonoBehaviour
             SpawnBunnys = true;
             spawnobjects();
         }
+        if(GT.RitualsCompleted == 3)
+        {
+            BunniesToSpawn = 200;
+        }
     }
     public void spawnobjects()
     {

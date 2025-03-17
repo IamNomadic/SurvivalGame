@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TomatoSO
   m_EditorClassIdentifier: 
   id: 2
-  Stats: 2
+  Stats: 4
   itemName: Tomato
   itemDescription: Heals a Full Heart
   icon: {fileID: 21300000, guid: 65dbb60acd1f6b94fbf47a581fb1a9a5, type: 3}
